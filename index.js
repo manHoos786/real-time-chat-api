@@ -5,7 +5,8 @@ const http = require('http');
 const router = require('./router');
 const cors = require('cors');
 
-const port = 8000 || process.env.PORT 
+const port = 8000 || process.env.PORT
+const host = '0.0.0.0'; 
 
 const app = express();
 const server = http.createServer(app);
@@ -43,7 +44,7 @@ io.on('connection', socket =>{
 
 app.use(router);
 app.use(cors);
-server.listen(port, ()=>{
+server.listen(port, host, ()=>{
     console.log(`Server is running on port ${port}`);
 })
 
